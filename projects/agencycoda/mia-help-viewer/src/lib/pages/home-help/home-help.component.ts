@@ -9,69 +9,33 @@ export class HomeHelpComponent implements OnInit {
 
   sections:any = [
     {
-      title: 'Anuncios',
-      image: '/assets/img/illustrations/001-anonymous.svg',
-      description: 'Estamos al pendiente. Esto es lo que sabemos que no está funcionando como debería.',
+      title: 'Participa en una subasta',
+      image: '/assets/img/illustrations/hammer.png',
+      description: 'Busca los bienes más interesantes y encuentra el mejor precio',
       link: ''
     },
     {
-      title: 'Interfaz de Codacoin',
-      image: '/assets/img/illustrations/003-atom.svg',
-      description: '¡¿QUÉ HACE ESTE BOTÓN?!',
+      title: 'Cómo comprar',
+      image: '/assets/img/illustrations/julia-card.png',
+      description: 'Entérate del proceso para comprar lo que buscas de la manera más sencilla en Dorotea',
       link: ''
     },
     {
-      title: 'Sección 3',
-      image: '/assets/img/illustrations/004-shopping bag.svg',
-      description: 'Lorem ipsum dolor sit amet consectetur adropising',
+      title: 'Quiero vender',
+      image: '/assets/img/illustrations/julia-phone.png',
+      description: 'Encuentra cómo vender tus bienes de la manera más eficiente',
       link: ''
     },
     {
-      title: 'Sección 4',
-      image: '/assets/img/illustrations/006-idea.svg',
-      description: 'Lorem ipsum dolor sit amet consectetur adropising',
+      title: 'Post venta',
+      image: '/assets/img/illustrations/julia-question.png',
+      description: 'Experimenta los beneficios que el Ecosistema de Dorotea tiene para ti: Financiación, Remodelación, validaciones.',
       link: ''
     },
     {
-      title: 'Sección 5',
-      image: '/assets/img/illustrations/006-idea.svg',
-      description: 'Lorem ipsum dolor sit amet consectetur adropising',
-      link: ''
-    },
-    {
-      title: 'Sección 6',
-      image: '/assets/img/illustrations/006-idea.svg',
-      description: 'Lorem ipsum dolor sit amet consectetur adropising',
-      link: ''
-    },
-    {
-      title: 'Sección 7',
-      image: '/assets/img/illustrations/006-idea.svg',
-      description: 'Lorem ipsum dolor sit amet consectetur adropising',
-      link: ''
-    },
-    {
-      title: 'Sección 8',
-      image: '/assets/img/illustrations/006-idea.svg',
-      description: 'Lorem ipsum dolor sit amet consectetur adropising',
-      link: ''
-    },
-    {
-      title: 'Sección 9',
-      image: '/assets/img/illustrations/006-idea.svg',
-      description: 'Lorem ipsum dolor sit amet consectetur adropising',
-      link: ''
-    },
-    {
-      title: 'Sección 10',
-      image: '/assets/img/illustrations/006-idea.svg',
-      description: 'Lorem ipsum dolor sit amet consectetur adropising',
-      link: ''
-    },
-    {
-      title: 'Sección 11',
-      image: '/assets/img/illustrations/006-idea.svg',
-      description: 'Lorem ipsum dolor sit amet consectetur adropising',
+      title: 'FAQs',
+      image: '/assets/img/illustrations/phone.png',
+      description: 'Sección de preguntas frecuentes',
       link: ''
     },
   ]

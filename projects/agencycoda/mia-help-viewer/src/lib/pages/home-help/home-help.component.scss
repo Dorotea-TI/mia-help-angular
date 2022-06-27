@@ -14,18 +14,25 @@
 @mixin lg { @media (min-width: 1280px) and (max-width: 1919px)  { @content; } }
 @mixin xl { @media (min-width: 1920px) and (max-width: 5000px)  { @content; } }
 
-.homepage{
+.homepage {
   overflow: hidden;
 }
 
-.header{
-  background-color: #4B7DFF;
+.header {
+  background-color: #002a5c;
   text-align: center;
   padding: 3em 1em;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 
-  img{
+  img {
     top: 0;
     left: 0;
     position: absolute;
@@ -37,21 +44,23 @@
     pointer-events: none;
   }
 
-  .container_page{
+  .container_page {
     width: 800px;
+    max-width: 100%;
     position: relative;
     z-index: 2;
   }
 
-  h1{
-    margin-top: 3em;
+  h1 {
+    margin: 0;
     color: rgba(255, 255, 255, 1);
   }
 
-  .search-field{
+  .search-field {
     position: relative;
+    margin-top: 24px;
 
-    input{
+    input {
       width: 100%;
       height: 42px;
       border-radius: 200px;
@@ -63,12 +72,12 @@
       -moz-transition: all 0.3s ease;
       -webkit-transition: all 0.3s ease;
       box-sizing: border-box;
-      &:hover{
-        border-color: #FF9820;
+      &:hover {
+        border-color: #ff9820;
       }
     }
 
-    mat-icon{
+    mat-icon {
       position: absolute;
       top: 10px;
       left: 16px;
@@ -77,60 +86,95 @@
   }
 }
 
-.sections{
+.sections {
   width: 100%;
   box-sizing: border-box;
-  padding: 1em 3em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 3em 3em;
 
-  .container_page{
+  @include xs {
+    padding: 2em 1em;
+  }
+
+  .container_page {
     text-align: center;
-    @include xs{
+    @include xs {
       padding-left: 0;
       padding-right: 0;
     }
-  }
 
-  .section{
-    height: 100%;
-    min-width: 12em;
-    padding: 1.5em 1em;
-    min-width: 10em;
-    white-space: normal;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    line-height: 1.5;
-    font-size: 1em;
-    position: relative;
-    box-shadow: 0 3px 4px 0 rgba( $color: #11102B, $alpha: 0.07), 0 4px 20px 0 rgba( $color: #11102B, $alpha: 0.06);
-    background-color: white;
-    border: 1px solid #F3F4F8;
-    top: 0;
-    font-weight: 400;
-    text-align: center;
-    &:hover{
-      top: -10px;
-    }
+    .list-sections {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5em;
 
-    .body-2 {
-      font-weight: 500;
-    }
+      .section-container {
+        width: calc(20% - 1em);
+        @include xs {
+          width: 100%;
+        }
+        @include sm {
+          width: calc(50% - 1.5em);
+        }
+        @include md {
+          width: calc(33.3% - 1.5em);
+        }
+        @include lg {
+          width: calc(25% - 1.5em);
+        }
+      }
 
-    img{
-      width: 80px;
-    }
+      .section {
+        height: 100%;
+        padding: 1.5em 1em;
+        white-space: normal;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 1.5;
+        font-size: 1em;
+        position: relative;
+        box-shadow: 0 3px 4px 0 rgba($color: #11102b, $alpha: 0.07),
+          0 4px 20px 0 rgba($color: #11102b, $alpha: 0.06);
+        background-color: white;
+        border: 1px solid #f3f4f8;
+        top: 0;
+        font-weight: 400;
+        text-align: center;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        display: block;
+        text-decoration: none;
+        color: initial;
 
-    mat-divider{
-      width: 60px;
-      margin: 1em auto !important;
-      display: block;
-    }
+        &:hover {
+          top: -10px;
+        }
 
-    h3{
-      margin-top: 1em;
-      font-size: 1.2em;
-      color: #4B7DFF;
-      font-weight: 500;
+        .body-2 {
+          font-weight: 500;
+        }
+
+        img {
+          width: 100px;
+          max-width: 100%;
+        }
+
+        mat-divider {
+          width: 60px;
+          margin: 1em auto !important;
+          display: block;
+        }
+
+        h3 {
+          margin-top: 1em;
+          font-size: 1.2em;
+          color: black;
+          font-weight: 500;
+        }
+      }
     }
   }
 }
