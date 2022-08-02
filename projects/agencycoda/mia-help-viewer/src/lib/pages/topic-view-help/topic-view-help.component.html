@@ -6,52 +6,39 @@
       <div class="topbar d-flex">
         <nav class="breadcrumb">
           <ol>
-            <li routerLinkActive="router-link-active" *ngFor="let item of breadcrumb">
-              <a [routerLink]="['/routePath']" class="link">{{item.route}}</a>
+            <li routerLinkActive="router-link-active">
+              <a [routerLink]="[config?.pathHome]" class="link">{{config?.titleHome}}</a>
+            </li>
+            <li routerLinkActive="router-link-active">
+              <a class="link">{{category?.title}}</a>
+            </li>
+            <li *ngIf="selectedItem" routerLinkActive="router-link-active">
+              <a class="link">{{selectedItem.title}}</a>
             </li>
           </ol>
         </nav>
   
-        <div class="search-field">
+        <div *ngIf="config?.hasSearch" class="search-field">
           <input type="text" placeholder="Buscar" />
           <mat-icon>search</mat-icon>
         </div>
       </div>
   
       <div class="content_layout">
-        <nav *ngIf="router.url !== '/search'" class="sidebar animated" [ngClass]="{'sidebar_open': isSidebarOpen}">
-          <div class="title">Getting Started</div>
+        <nav class="sidebar animated" [ngClass]="{'sidebar_open': isSidebarOpen}">
+          <div class="title">{{category?.title}}</div>
           <ul>
-            <li routerLinkActive="router-link-active" *ngFor="let item of sidebar">
-              <a [routerLink]="['/routePath']">{{item.route}}</a>
-            </li>
-            <li routerLinkActive="router-link-active">
-              <a [routerLink]="['/routePath']" class="is-active">[item_nav_active]</a>
+            <li *ngFor="let item of list" routerLinkActive="router-link-active" (click)="onClickItem(item)">
+              <a>{{item.title}}</a>
             </li>
           </ul>
         </nav>
   
         <section class="container_pages">
-            <h1>This is a Title</h1>
+            <h1>{{selectedItem?.title}}</h1>
 
-            <p>topic works!</p>
-
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, dolor et molestiae aut porro esse minima excepturi sed. Optio, nobis doloribus consectetur voluptatem veniam hic mollitia illum laboriosam repellendus perferendis in vel sunt esse placeat nam iste qui, officia animi dignissimos. Illo reprehenderit assumenda aut nostrum consequuntur eligendi provident corporis rem, dicta nemo cupiditate eos asperiores id nihil ipsam recusandae?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, dolor et molestiae aut porro esse minima excepturi sed. Optio, nobis doloribus consectetur voluptatem veniam hic mollitia illum laboriosam repellendus perferendis in vel sunt esse placeat nam iste qui, officia animi dignissimos. Illo reprehenderit assumenda aut nostrum consequuntur eligendi provident corporis rem, dicta nemo cupiditate eos asperiores id nihil ipsam recusandae?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, dolor et molestiae aut porro esse minima excepturi sed. Optio, nobis doloribus consectetur voluptatem veniam hic mollitia illum laboriosam repellendus perferendis in vel sunt esse placeat nam iste qui, officia animi dignissimos. Illo reprehenderit assumenda aut nostrum consequuntur eligendi provident corporis rem, dicta nemo cupiditate eos asperiores id nihil ipsam recusandae?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, dolor et molestiae aut porro esse minima excepturi sed. Optio, nobis doloribus consectetur voluptatem veniam hic mollitia illum laboriosam repellendus perferendis in vel sunt esse placeat nam iste qui, officia animi dignissimos. Illo reprehenderit assumenda aut nostrum consequuntur eligendi provident corporis rem, dicta nemo cupiditate eos asperiores id nihil ipsam recusandae?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, dolor et molestiae aut porro esse minima excepturi sed. Optio, nobis doloribus consectetur voluptatem veniam hic mollitia illum laboriosam repellendus perferendis in vel sunt esse placeat nam iste qui, officia animi dignissimos. Illo reprehenderit assumenda aut nostrum consequuntur eligendi provident corporis rem, dicta nemo cupiditate eos asperiores id nihil ipsam recusandae?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, dolor et molestiae aut porro esse minima excepturi sed. Optio, nobis doloribus consectetur voluptatem veniam hic mollitia illum laboriosam repellendus perferendis in vel sunt esse placeat nam iste qui, officia animi dignissimos. Illo reprehenderit assumenda aut nostrum consequuntur eligendi provident corporis rem, dicta nemo cupiditate eos asperiores id nihil ipsam recusandae?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, dolor et molestiae aut porro esse minima excepturi sed. Optio, nobis doloribus consectetur voluptatem veniam hic mollitia illum laboriosam repellendus perferendis in vel sunt esse placeat nam iste qui, officia animi dignissimos. Illo reprehenderit assumenda aut nostrum consequuntur eligendi provident corporis rem, dicta nemo cupiditate eos asperiores id nihil ipsam recusandae?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, dolor et molestiae aut porro esse minima excepturi sed. Optio, nobis doloribus consectetur voluptatem veniam hic mollitia illum laboriosam repellendus perferendis in vel sunt esse placeat nam iste qui, officia animi dignissimos. Illo reprehenderit assumenda aut nostrum consequuntur eligendi provident corporis rem, dicta nemo cupiditate eos asperiores id nihil ipsam recusandae?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, dolor et molestiae aut porro esse minima excepturi sed. Optio, nobis doloribus consectetur voluptatem veniam hic mollitia illum laboriosam repellendus perferendis in vel sunt esse placeat nam iste qui, officia animi dignissimos. Illo reprehenderit assumenda aut nostrum consequuntur eligendi provident corporis rem, dicta nemo cupiditate eos asperiores id nihil ipsam recusandae?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, dolor et molestiae aut porro esse minima excepturi sed. Optio, nobis doloribus consectetur voluptatem veniam hic mollitia illum laboriosam repellendus perferendis in vel sunt esse placeat nam iste qui, officia animi dignissimos. Illo reprehenderit assumenda aut nostrum consequuntur eligendi provident corporis rem, dicta nemo cupiditate eos asperiores id nihil ipsam recusandae?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, dolor et molestiae aut porro esse minima excepturi sed. Optio, nobis doloribus consectetur voluptatem veniam hic mollitia illum laboriosam repellendus perferendis in vel sunt esse placeat nam iste qui, officia animi dignissimos. Illo reprehenderit assumenda aut nostrum consequuntur eligendi provident corporis rem, dicta nemo cupiditate eos asperiores id nihil ipsam recusandae?</p>
-
-
+            <div [innerHTML]="selectedItem?.content"></div>
             <!--<app-was-this-article-useful-component></app-was-this-article-useful-component>-->
-
         </section>
       </div>
   

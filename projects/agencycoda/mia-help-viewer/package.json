@@ -1,6 +1,6 @@
 {
   "name": "@agencycoda/mia-help-viewer",
-  "version": "13.1.1",
+  "version": "13.1.2",
   "peerDependencies": {
     "@angular/common": "^13.2.0",
     "@angular/core": "^13.2.0",
