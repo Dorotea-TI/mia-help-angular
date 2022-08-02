@@ -1,11 +1,11 @@
 <div class="homepage">
 
   <div class="header">
-    <img src="/assets/img/bg-section/apartment.jpg" alt="Header Image Background" />
+    <img [src]="config?.backgroundImageHeader" [alt]="config?.titlePage" />
     <div class="container_page">
-      <h1>Centro de ayuda</h1>
+      <h1 *ngIf="config?.titlePage">{{config?.titlePage}}</h1>
 
-      <div class="search-field">
+      <div *ngIf="config?.hasSearch" class="search-field">
         <input type="text" placeholder="Buscar" />
         <mat-icon>search</mat-icon>
       </div>
@@ -14,17 +14,17 @@
 
   <div class="sections">
     <div class="container_page">
-      <h2>Hola! ¿en qué podemos ayudarte hoy?</h2>
-      <p>A continuación, podrás encontrar un listado de opciones mediante las cuales podemos ayudarte. Para más información o alguna inquietud adicional no dudes en utilizar nuestros canales de atención.</p>
+      <h2 *ngIf="config?.firstText">{{config?.firstText}}</h2>
+      <p *ngIf="config?.secondText">{{config?.secondText}}</p>
     </div>
 
     <div class="list-sections">
-      <div class="section-container" *ngFor="let section of sections">
-        <a [routerLink]="['/categories']" mat-button class="section component-animation animated">
-          <img [src]="section.image" alt="{{ section.title }}">
-          <h3> {{ section.title }} </h3>
+      <div class="section-container" *ngFor="let category of categories">
+        <a [routerLink]="[config?.pathDetail + '/' + category.id]" mat-button class="section component-animation animated">
+          <img [src]="category.icon" alt="{{ category.title }}">
+          <h3> {{ category.title }} </h3>
           <mat-divider></mat-divider>
-          <div class="body-2"> {{ section.description }} </div>
+          <div class="body-2"> {{ category.subtitle }} </div>
         </a>
       </div>
     </div>

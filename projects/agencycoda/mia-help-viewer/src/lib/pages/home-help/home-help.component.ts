@@ -1,4 +1,16 @@
+import { MiaCategory, MiaCategoryService } from '@agencycoda/mia-category-core';
+import { MiaQuery } from '@agencycoda/mia-core';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+export class MiaHelpHomePageConfig {
+  titlePage = '';
+  backgroundImageHeader?: string = '';
+  hasSearch?: boolean = false;
+  firstText?: string = '';
+  secondText?: string = '';
+  pathDetail: string = '/help/';
+}
 
 @Component({
   selector: 'lib-home-help',
@@ -7,42 +19,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeHelpComponent implements OnInit {
 
-  sections:any = [
-    {
-      title: 'Participa en una subasta',
-      image: '/assets/img/illustrations/hammer.png',
-      description: 'Busca los bienes más interesantes y encuentra el mejor precio',
-      link: ''
-    },
-    {
-      title: 'Cómo comprar',
-      image: '/assets/img/illustrations/julia-card.png',
-      description: 'Entérate del proceso para comprar lo que buscas de la manera más sencilla en Dorotea',
-      link: ''
-    },
-    {
-      title: 'Quiero vender',
-      image: '/assets/img/illustrations/julia-phone.png',
-      description: 'Encuentra cómo vender tus bienes de la manera más eficiente',
-      link: ''
-    },
-    {
-      title: 'Post venta',
-      image: '/assets/img/illustrations/julia-question.png',
-      description: 'Experimenta los beneficios que el Ecosistema de Dorotea tiene para ti: Financiación, Remodelación, validaciones.',
-      link: ''
-    },
-    {
-      title: 'FAQs',
-      image: '/assets/img/illustrations/phone.png',
-      description: 'Sección de preguntas frecuentes',
-      link: ''
-    },
-  ]
+  config?: MiaHelpHomePageConfig;
 
-  constructor() { }
+  categories?: Array<MiaCategory|any>;
+
+  constructor(
+    protected route: ActivatedRoute,
+    protected categoryService: MiaCategoryService
+  ) { }
 
   ngOnInit(): void {
+    this.loadConfig();
+    this.loadCategories();
   }
 
+  loadCategories() {
+    let query = new MiaQuery();
+    query.addOrderAsc('ord');
+    query.addWhere('status', 1);
+
+    this.categoryService.listOb(query).subscribe(res => this.categories = res.data);
+  }
+  
+  loadConfig() {
+    this.route.data.subscribe(data => this.config = data as MiaHelpHomePageConfig);
+  }
 }

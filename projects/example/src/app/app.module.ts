@@ -7,6 +7,7 @@ import { MiaHelpEditorModule } from 'projects/agencycoda/mia-help-editor/src/pub
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MiaHelpViewerModule } from 'projects/agencycoda/mia-help-viewer/src/public-api';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
     MiaLayoutModule,
     MiaHelpEditorModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MiaHelpViewerModule
   ],
   providers: [
     { 
