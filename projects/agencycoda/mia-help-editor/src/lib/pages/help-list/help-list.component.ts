@@ -7,6 +7,7 @@ import { MiaLanguageService } from '@agencycoda/mia-language-core';
 import { MiaPageCrudComponent, MiaPageCrudConfig } from '@agencycoda/mia-layout';
 import { MiaColumn } from '@agencycoda/mia-table';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { HelpfulColumnComponent } from '../../columns/helpful-column/helpful-column.component';
@@ -104,9 +105,9 @@ export class HelpListComponent implements OnInit {
     this.config.formConfig.config = new MiaFormConfig();
     this.config.formConfig.config.hasSubmit = false;
     this.config.formConfig.config.fields = [
-      { key: 'language_id', type: MiaField.TYPE_SELECT_SERVICE, label: this.lang == 'es' ? 'Idioma' : 'Languaje', extra: { service: this.languageService, field_display: 'title', field_list: 'language-auto', query: new MiaQuery() } },
-      { key: 'category_id', type: MiaField.TYPE_SELECT_SERVICE, label: this.lang == 'es' ? 'Categoria' : 'Category', extra: { service: this.categoryService, field_display: 'title', field_list: 'category-auto', query: new MiaQuery() } },
-      { key: 'title', type: MiaField.TYPE_STRING, label: this.lang == 'es' ? 'Titulo' : 'Title' },
+      { key: 'language_id', type: MiaField.TYPE_SELECT_SERVICE, label: this.lang == 'es' ? 'Idioma' : 'Languaje', validators: [Validators.required], extra: { service: this.languageService, field_display: 'title', field_list: 'language-auto', query: new MiaQuery() } },
+      { key: 'category_id', type: MiaField.TYPE_SELECT_SERVICE, label: this.lang == 'es' ? 'Categoria' : 'Category', validators: [Validators.required], extra: { service: this.categoryService, field_display: 'title', field_list: 'category-auto', query: new MiaQuery() } },
+      { key: 'title', type: MiaField.TYPE_STRING, label: this.lang == 'es' ? 'Titulo' : 'Title', validators: [Validators.required] },
       { key: 'content', type: MiaField.TYPE_HTML, label: this.lang == 'es' ? 'Contenido' : 'Content' },
       { key: 'status', type: MiaField.TYPE_SELECT, label: this.lang == 'es' ? 'Estado' : 'Status', extra: {
         options: [
