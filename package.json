@@ -6,9 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "build2": "ng build --prod --project=@doroteati/mia-help-core && cd dist/doroteati/mia-help-core/ && npm publish",
-    "build3": "ng build --prod --project=@doroteati/mia-help-editor && cd dist/doroteati/mia-help-editor/ && npm publish",
-    "build4": "ng build --prod --project=@doroteati/mia-help-viewer && cd dist/doroteati/mia-help-viewer/ && npm publish --access public",
+    "build2": "ng build --configuration production --project=@doroteati/mia-help-core && cd dist/doroteati/mia-help-core/ && npm publish",
+    "build3": "ng build --configuration production --project=@doroteati/mia-help-editor && cd dist/doroteati/mia-help-editor/ && npm publish",
+    "build4": "ng build --configuration production --project=@doroteati/mia-help-viewer && cd dist/doroteati/mia-help-viewer/ && npm publish --access public",
     "test": "ng test"
   },
   "private": true,
