@@ -3,17 +3,17 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "@agencycoda/mia-help-core": [
-        "dist/agencycoda/mia-help-core/agencycoda-mia-help-core",
-        "dist/agencycoda/mia-help-core"
+      "@doroteati/mia-help-core": [
+        "dist/doroteati/mia-help-core/doroteati-mia-help-core",
+        "dist/doroteati/mia-help-core"
       ],
-      "@agencycoda/mia-help-editor": [
-        "dist/agencycoda/mia-help-editor/agencycoda-mia-help-editor",
-        "dist/agencycoda/mia-help-editor"
+      "@doroteati/mia-help-editor": [
+        "dist/doroteati/mia-help-editor/doroteati-mia-help-editor",
+        "dist/doroteati/mia-help-editor"
       ],
-      "@agencycoda/mia-help-viewer": [
-        "dist/agencycoda/mia-help-viewer/agencycoda-mia-help-viewer",
-        "dist/agencycoda/mia-help-viewer"
+      "@doroteati/mia-help-viewer": [
+        "dist/doroteati/mia-help-viewer/doroteati-mia-help-viewer",
+        "dist/doroteati/mia-help-viewer"
       ]
     },
     "baseUrl": "./",
@@ -30,10 +30,7 @@
     "importHelpers": true,
     "target": "es2020",
     "module": "es2020",
-    "lib": [
-      "es2018",
-      "dom"
-    ]
+    "lib": ["es2018", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

@@ -6,23 +6,23 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "@agencycoda/mia-help-core": {
+    "@doroteati/mia-help-core": {
       "projectType": "library",
-      "root": "projects/agencycoda/mia-help-core",
-      "sourceRoot": "projects/agencycoda/mia-help-core/src",
+      "root": "projects/doroteati/mia-help-core",
+      "sourceRoot": "projects/doroteati/mia-help-core/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/agencycoda/mia-help-core/ng-package.json"
+            "project": "projects/doroteati/mia-help-core/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/agencycoda/mia-help-core/tsconfig.lib.prod.json"
+              "tsConfig": "projects/doroteati/mia-help-core/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/agencycoda/mia-help-core/tsconfig.lib.json"
+              "tsConfig": "projects/doroteati/mia-help-core/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -30,30 +30,30 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/agencycoda/mia-help-core/src/test.ts",
-            "tsConfig": "projects/agencycoda/mia-help-core/tsconfig.spec.json",
-            "karmaConfig": "projects/agencycoda/mia-help-core/karma.conf.js"
+            "main": "projects/doroteati/mia-help-core/src/test.ts",
+            "tsConfig": "projects/doroteati/mia-help-core/tsconfig.spec.json",
+            "karmaConfig": "projects/doroteati/mia-help-core/karma.conf.js"
           }
         }
       }
     },
-    "@agencycoda/mia-help-editor": {
+    "@doroteati/mia-help-editor": {
       "projectType": "library",
-      "root": "projects/agencycoda/mia-help-editor",
-      "sourceRoot": "projects/agencycoda/mia-help-editor/src",
+      "root": "projects/doroteati/mia-help-editor",
+      "sourceRoot": "projects/doroteati/mia-help-editor/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/agencycoda/mia-help-editor/ng-package.json"
+            "project": "projects/doroteati/mia-help-editor/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/agencycoda/mia-help-editor/tsconfig.lib.prod.json"
+              "tsConfig": "projects/doroteati/mia-help-editor/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/agencycoda/mia-help-editor/tsconfig.lib.json"
+              "tsConfig": "projects/doroteati/mia-help-editor/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -61,9 +61,9 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/agencycoda/mia-help-editor/src/test.ts",
-            "tsConfig": "projects/agencycoda/mia-help-editor/tsconfig.spec.json",
-            "karmaConfig": "projects/agencycoda/mia-help-editor/karma.conf.js"
+            "main": "projects/doroteati/mia-help-editor/src/test.ts",
+            "tsConfig": "projects/doroteati/mia-help-editor/tsconfig.spec.json",
+            "karmaConfig": "projects/doroteati/mia-help-editor/karma.conf.js"
           }
         }
       }
@@ -173,23 +173,23 @@
         }
       }
     },
-    "@agencycoda/mia-help-viewer": {
+    "@doroteati/mia-help-viewer": {
       "projectType": "library",
-      "root": "projects/agencycoda/mia-help-viewer",
-      "sourceRoot": "projects/agencycoda/mia-help-viewer/src",
+      "root": "projects/doroteati/mia-help-viewer",
+      "sourceRoot": "projects/doroteati/mia-help-viewer/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/agencycoda/mia-help-viewer/ng-package.json"
+            "project": "projects/doroteati/mia-help-viewer/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/agencycoda/mia-help-viewer/tsconfig.lib.prod.json"
+              "tsConfig": "projects/doroteati/mia-help-viewer/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/agencycoda/mia-help-viewer/tsconfig.lib.json"
+              "tsConfig": "projects/doroteati/mia-help-viewer/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -197,9 +197,9 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/agencycoda/mia-help-viewer/src/test.ts",
-            "tsConfig": "projects/agencycoda/mia-help-viewer/tsconfig.spec.json",
-            "karmaConfig": "projects/agencycoda/mia-help-viewer/karma.conf.js"
+            "main": "projects/doroteati/mia-help-viewer/src/test.ts",
+            "tsConfig": "projects/doroteati/mia-help-viewer/tsconfig.spec.json",
+            "karmaConfig": "projects/doroteati/mia-help-viewer/karma.conf.js"
           }
         }
       }

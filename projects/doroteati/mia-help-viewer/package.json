@@ -1,0 +1,14 @@
+{
+  "name": "@doroteati/mia-help-viewer",
+  "version": "13.1.2",
+  "peerDependencies": {
+    "@angular/common": "^13.2.0",
+    "@angular/core": "^13.2.0",
+    "@doroteati/mia-core": ">=13.1.0",
+    "@doroteati/mia-help-core": ">=13.1.1",
+    "@doroteati/mia-category-core": ">=0.0.3"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}
