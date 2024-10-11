@@ -6,8 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "build2": "ng build --configuration production --project=@doroteati/mia-help-core && cd dist/doroteati/mia-help-core/ && npm publish",
-    "build3": "ng build --configuration production --project=@doroteati/mia-help-editor && cd dist/doroteati/mia-help-editor/ && npm publish",
+    "build2": "ng build --configuration production --project=@doroteati/mia-help-core && cd dist/doroteati/mia-help-core/ && npm publish --access public",
+    "build3": "ng build --configuration production --project=@doroteati/mia-help-editor && cd dist/doroteati/mia-help-editor/ && npm publish --access public",
     "build4": "ng build --configuration production --project=@doroteati/mia-help-viewer && cd dist/doroteati/mia-help-viewer/ && npm publish --access public",
     "test": "ng test"
   },
@@ -30,6 +30,7 @@
     "@doroteati/mia-category-editor": "^14.0.1",
     "@doroteati/mia-core": "^14.0.2",
     "@doroteati/mia-form": "^14.3.3",
+    "@doroteati/mia-help-core": "^14.0.0",
     "@doroteati/mia-language-core": "^14.0.0",
     "@doroteati/mia-layout": "^14.0.0",
     "@doroteati/mia-loading": "^14.0.0",

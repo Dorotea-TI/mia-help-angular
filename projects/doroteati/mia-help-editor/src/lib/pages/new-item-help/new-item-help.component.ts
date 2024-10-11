@@ -8,9 +8,11 @@ import {
   MiaFormConfig,
 } from '@doroteati/mia-form';
 import { MiaHelp, MiaHelpService } from '@doroteati/mia-help-core';
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'lib-new-item-help',
@@ -44,14 +46,21 @@ export class NewItemHelpComponent implements OnInit {
   }
 
   processWithBaseService(item: any) {
-    let serviceSave: Promise<any> = this.helpService.save(item);
-    serviceSave
-      .then((result) => {
+    let serviceSave: Observable<any> = this.helpService.save(item);
+    serviceSave.subscribe({
+      next: () => {
         this.isSending = false;
-      })
-      .catch((error) => {
+      },
+      error: () => {
         this.isSending = false;
-      });
+      },
+    });
+    // .then((result) => {
+    //   this.isSending = false;
+    // })
+    // .catch((error) => {
+    //   this.isSending = false;
+    // });
   }
 
   save(item: any) {

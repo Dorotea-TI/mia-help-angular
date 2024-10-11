@@ -5,7 +5,7 @@ import { MiaField, MiaFormConfig } from '@doroteati/mia-form';
 import { MiaHelp, MiaHelpService } from '@doroteati/mia-help-core';
 import { MiaLanguageService } from '@doroteati/mia-language-core';
 import { MiaPageCrudComponent, MiaPageCrudConfig } from '@doroteati/mia-layout';
-import { MiaColumn } from '@doroteati/mia-table';
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';

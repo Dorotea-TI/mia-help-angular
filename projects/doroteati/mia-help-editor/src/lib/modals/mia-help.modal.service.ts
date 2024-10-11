@@ -1,4 +1,3 @@
-import { MiaQuery } from '@doroteati/mia-core';
 import {
   MiaField,
   MiaFormConfig,

@@ -28,7 +28,7 @@ import {
     {
       provide: MIA_CORE_PROVIDER,
       useValue: {
-        baseUrl: 'https://dorotea-interno.uc.r.appspot.com/',
+        baseUrl: 'http://dorotea.test/',
         //baseUrl: 'http://0.0.0.0:8080/'
       },
     },
