@@ -1,12 +1,12 @@
 {
   "name": "@doroteati/mia-help-viewer",
-  "version": "14.0.0",
+  "version": "15.0.0",
   "peerDependencies": {
-    "@angular/common": "^14.0.0",
-    "@angular/core": "^14.0.0",
-    "@doroteati/mia-core": ">=14.0.2",
-    "@doroteati/mia-help-core": ">=14.0.0",
-    "@doroteati/mia-category-core": ">=14.0.3"
+    "@angular/common": "^15.0.0",
+    "@angular/core": "^15.0.0",
+    "@doroteati/mia-core": ">=15.0.0",
+    "@doroteati/mia-help-core": ">=15.0.0",
+    "@doroteati/mia-category-core": ">=15.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
