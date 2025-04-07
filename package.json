@@ -25,6 +25,8 @@
     "@angular/platform-browser-dynamic": "^16.2.12",
     "@angular/router": "^16.2.12",
     "@doroteati/mia-auth": "^16.0.0",
+    "@doroteati/mia-category-core": "^16.0.0",
+    "@doroteati/mia-category-editor": "^16.0.0",
     "@doroteati/mia-core": "^16.0.0",
     "@doroteati/mia-form": "^16.0.1",
     "@doroteati/mia-language-core": "^16.0.0",

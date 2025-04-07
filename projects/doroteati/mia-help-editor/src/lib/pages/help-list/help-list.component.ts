@@ -1,5 +1,5 @@
-import { MiaCategoryService } from '@doroteati/mia-category-core';
 import { MiaCategoryModalService } from '@doroteati/mia-category-editor';
+import { MiaCategoryService } from '@doroteati/mia-category-core';
 import { MiaQuery, nil } from '@doroteati/mia-core';
 import { MiaField, MiaFormConfig } from '@doroteati/mia-form';
 import { MiaHelp, MiaHelpService } from '@doroteati/mia-help-core';

@@ -1,5 +1,4 @@
 import { MiaCategoryService } from '@doroteati/mia-category-core';
-import { MiaLanguageService } from '@doroteati/mia-language-core';
 import { nil } from '@doroteati/mia-core';
 import {
   BoxFieldComponent,
@@ -8,11 +7,12 @@ import {
   MiaFormConfig,
 } from '@doroteati/mia-form';
 import { MiaHelp, MiaHelpService } from '@doroteati/mia-help-core';
+import { MiaLanguageService } from '@doroteati/mia-language-core';
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'lib-new-item-help',
