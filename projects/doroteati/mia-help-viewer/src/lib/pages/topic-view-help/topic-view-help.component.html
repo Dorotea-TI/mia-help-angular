@@ -1,47 +1,52 @@
 <!-- <app-navbar [isSidebarOpen]="isSidebarOpen" (openSidebar)="isSidebarOpen=$event"></app-navbar> -->
 
 <main class="main_layout">
-    <div class="container_page">
-  
-      <div class="topbar d-flex">
-        <nav class="breadcrumb">
-          <ol>
+  <div class="container_page">
+
+    <div class="topbar d-flex">
+      <nav class="breadcrumb">
+        <ol>
+          <li routerLinkActive="router-link-active">
+            <a [routerLink]="[config?.pathHome]" class="link">{{config?.titleHome}}</a>
+          </li>
+          <li routerLinkActive="router-link-active">
+            <a class="link">{{category?.title}}</a>
+          </li>
+          @if (selectedItem) {
             <li routerLinkActive="router-link-active">
-              <a [routerLink]="[config?.pathHome]" class="link">{{config?.titleHome}}</a>
-            </li>
-            <li routerLinkActive="router-link-active">
-              <a class="link">{{category?.title}}</a>
-            </li>
-            <li *ngIf="selectedItem" routerLinkActive="router-link-active">
               <a class="link">{{selectedItem.title}}</a>
             </li>
-          </ol>
-        </nav>
-  
-        <div *ngIf="config?.hasSearch" class="search-field">
+          }
+        </ol>
+      </nav>
+
+      @if (config?.hasSearch) {
+        <div class="search-field">
           <input type="text" placeholder="Buscar" />
           <mat-icon>search</mat-icon>
         </div>
-      </div>
-  
-      <div class="content_layout">
-        <nav class="sidebar animated" [ngClass]="{'sidebar_open': isSidebarOpen}">
-          <div class="title">{{category?.title}}</div>
-          <ul>
-            <li *ngFor="let item of list" routerLinkActive="router-link-active" (click)="onClickItem(item)">
+      }
+    </div>
+
+    <div class="content_layout">
+      <nav class="sidebar animated" [ngClass]="{'sidebar_open': isSidebarOpen}">
+        <div class="title">{{category?.title}}</div>
+        <ul>
+          @for (item of list; track item) {
+            <li routerLinkActive="router-link-active" (click)="onClickItem(item)">
               <a>{{item.title}}</a>
             </li>
-          </ul>
-        </nav>
-  
-        <section class="container_pages">
-            <h1>{{selectedItem?.title}}</h1>
+          }
+        </ul>
+      </nav>
 
-            <div [innerHTML]="selectedItem?.content"></div>
-            <!--<app-was-this-article-useful-component></app-was-this-article-useful-component>-->
-        </section>
-      </div>
-  
+      <section class="container_pages">
+        <h1>{{selectedItem?.title}}</h1>
+
+        <div [innerHTML]="selectedItem?.content"></div>
+        <!--<app-was-this-article-useful-component></app-was-this-article-useful-component>-->
+      </section>
     </div>
-  </main>
-  
+
+  </div>
+</main>

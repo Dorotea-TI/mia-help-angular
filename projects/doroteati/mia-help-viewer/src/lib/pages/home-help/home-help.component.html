@@ -3,30 +3,40 @@
   <div class="header">
     <img [src]="config?.backgroundImageHeader" [alt]="config?.titlePage" />
     <div class="container_page">
-      <h1 *ngIf="config?.titlePage">{{config?.titlePage}}</h1>
+      @if (config?.titlePage) {
+        <h1>{{config?.titlePage}}</h1>
+      }
 
-      <div *ngIf="config?.hasSearch" class="search-field">
-        <input type="text" placeholder="Buscar" />
-        <mat-icon>search</mat-icon>
-      </div>
+      @if (config?.hasSearch) {
+        <div class="search-field">
+          <input type="text" placeholder="Buscar" />
+          <mat-icon>search</mat-icon>
+        </div>
+      }
     </div>
   </div>
 
   <div class="sections">
     <div class="container_page">
-      <h2 *ngIf="config?.firstText">{{config?.firstText}}</h2>
-      <p *ngIf="config?.secondText">{{config?.secondText}}</p>
+      @if (config?.firstText) {
+        <h2>{{config?.firstText}}</h2>
+      }
+      @if (config?.secondText) {
+        <p>{{config?.secondText}}</p>
+      }
     </div>
 
     <div class="list-sections">
-      <div class="section-container" *ngFor="let category of categories">
-        <a [routerLink]="[config?.pathDetail + '/' + category.id]" mat-button class="section component-animation animated">
-          <img [src]="category.icon" alt="{{ category.title }}">
-          <h3> {{ category.title }} </h3>
-          <mat-divider></mat-divider>
-          <div class="body-2"> {{ category.subtitle }} </div>
-        </a>
-      </div>
+      @for (category of categories; track category) {
+        <div class="section-container">
+          <a [routerLink]="[config?.pathDetail + '/' + category.id]" mat-button class="section component-animation animated">
+            <img [src]="category.icon" alt="{{ category.title }}">
+            <h3> {{ category.title }} </h3>
+            <mat-divider></mat-divider>
+            <div class="body-2"> {{ category.subtitle }} </div>
+          </a>
+        </div>
+      }
     </div>
   </div>
 

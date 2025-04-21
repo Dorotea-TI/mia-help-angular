@@ -1,21 +1,33 @@
 <div class="create-auction-page">
-    <h1><b>Editing item</b></h1>
-    <div class="navigation">
-        <div *ngFor="let tab of tabs; let index = index" class="link" [ngClass]="{'link-active': sectionSelectedIndex == index}" (click)="onClickTab(tab, index)">{{ tab.title }}</div>
-    </div>
+  <h1><b>Editing item</b></h1>
+  <div class="navigation">
+    @for (tab of tabs; track tab; let index = $index) {
+      <div class="link" [ngClass]="{'link-active': sectionSelectedIndex == index}" (click)="onClickTab(tab, index)">{{ tab.title }}</div>
+    }
+  </div>
 
-    <div *ngIf="configForm" class="content">
-        <ng-container *ngFor="let tab of tabs; let index = index">
-            <div *ngIf="sectionSelectedIndex == index" class="settings-page-general">
-                <h2>{{ tab.title }}</h2>
-                <mia-form #miaForm [config]="configForm!" [item]="auction"></mia-form>
-              </div>
-        </ng-container>
+  @if (configForm) {
+    <div class="content">
+      @for (tab of tabs; track tab; let index = $index) {
+        @if (sectionSelectedIndex == index) {
+          <div class="settings-page-general">
+            <h2>{{ tab.title }}</h2>
+            <mia-form #miaForm [config]="configForm!" [item]="auction"></mia-form>
+          </div>
+        }
+      }
     </div>
+  }
 
-    <div class="buttons">
-        <button *ngIf="!isSending" mat-button matDialogClose class="btn-cancel"><mat-icon>close</mat-icon> Cancel</button>
-        <button *ngIf="!isSending && (sectionSelectedIndex == tabs.length-1 || auction.id > 0)" mat-raised-button color="primary" (click)="onClickSave()" class="btn-primary">Publish</button>
-        <button *ngIf="!isSending && (sectionSelectedIndex < tabs.length-1 && auction.id == 0)" mat-raised-button color="primary" (click)="onClickContinue()" class="btn-primary">Continue</button>
-    </div>
+  <div class="buttons">
+    @if (!isSending) {
+      <button mat-button matDialogClose class="btn-cancel"><mat-icon>close</mat-icon> Cancel</button>
+    }
+    @if (!isSending && (sectionSelectedIndex == tabs.length-1 || auction.id > 0)) {
+      <button mat-raised-button color="primary" (click)="onClickSave()" class="btn-primary">Publish</button>
+    }
+    @if (!isSending && (sectionSelectedIndex < tabs.length-1 && auction.id == 0)) {
+      <button mat-raised-button color="primary" (click)="onClickContinue()" class="btn-primary">Continue</button>
+    }
+  </div>
 </div>
