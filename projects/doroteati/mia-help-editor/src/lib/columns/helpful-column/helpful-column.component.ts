@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'lib-helpful-column',
   templateUrl: './helpful-column.component.html',
   styleUrls: ['./helpful-column.component.css'],
+  standalone: true,
 })
 export class HelpfulColumnComponent
   extends BaseColumnComponent

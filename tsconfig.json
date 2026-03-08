@@ -3,19 +3,15 @@
   "compileOnSave": false,
   "compilerOptions": {
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
     "paths": {
       "@doroteati/mia-help-core": [
-        "dist/doroteati/mia-help-core/doroteati-mia-help-core",
         "dist/doroteati/mia-help-core"
       ],
       "@doroteati/mia-help-editor": [
-        "dist/doroteati/mia-help-editor/doroteati-mia-help-editor",
-        "dist/doroteati/mia-help-editor"
+        "projects/doroteati/mia-help-editor/src/public-api.ts"
       ],
       "@doroteati/mia-help-viewer": [
-        "dist/doroteati/mia-help-viewer/doroteati-mia-help-viewer",
-        "dist/doroteati/mia-help-viewer"
+        "projects/doroteati/mia-help-viewer/src/public-api.ts"
       ]
     },
     "baseUrl": "./",
@@ -26,13 +22,11 @@
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
-    "downlevelIteration": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
     "module": "es2020",
-    "lib": ["es2018", "dom"],
     "useDefineForClassFields": false
   },
   "angularCompilerOptions": {

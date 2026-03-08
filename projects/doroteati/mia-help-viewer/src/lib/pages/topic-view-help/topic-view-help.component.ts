@@ -6,8 +6,11 @@ import {
   Breakpoints,
   BreakpointState,
 } from '@angular/cdk/layout';
+import { NgClass } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute, Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 
@@ -21,6 +24,8 @@ export class MiaHelpDetailPageConfig {
   selector: 'lib-topic-view-help',
   templateUrl: './topic-view-help.component.html',
   styleUrls: ['./topic-view-help.component.scss'],
+  standalone: true,
+  imports: [NgClass, RouterModule, MatIconModule],
 })
 export class TopicViewHelpComponent implements OnInit {
   config?: MiaHelpDetailPageConfig;
@@ -30,7 +35,7 @@ export class TopicViewHelpComponent implements OnInit {
   list = new Array<MiaHelp>();
   selectedItem?: MiaHelp;
 
-  isSidebarOpen: boolean = true;
+  isSidebarOpen = true;
 
   constructor(
     protected route: ActivatedRoute,

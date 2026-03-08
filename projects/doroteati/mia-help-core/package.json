@@ -1,10 +1,9 @@
 {
   "name": "@doroteati/mia-help-core",
-  "version": "17.0.0",
+  "version": "21.0.0",
   "peerDependencies": {
-    "@angular/common": ">=17.0.0",
-    "@angular/core": ">=17.0.0",
-    "@doroteati/mia-core": ">=17.0.0"
+    "@angular/core": "^21.0.0",
+    "@doroteati/mia-core": "^21.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"

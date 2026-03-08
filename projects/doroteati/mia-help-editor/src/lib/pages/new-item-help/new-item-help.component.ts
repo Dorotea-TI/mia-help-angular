@@ -3,14 +3,18 @@ import { nil } from '@doroteati/mia-core';
 import {
   BoxFieldComponent,
   MiaField,
-  MiaFormComponent,
   MiaFormConfig,
+  MiaFormComponent,
 } from '@doroteati/mia-form';
 import { MiaHelp, MiaHelpService } from '@doroteati/mia-help-core';
 import { MiaLanguageService } from '@doroteati/mia-language-core';
 
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgClass } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
@@ -18,6 +22,14 @@ import { map, tap } from 'rxjs/operators';
   selector: 'lib-new-item-help',
   templateUrl: './new-item-help.component.html',
   styleUrls: ['./new-item-help.component.css'],
+  standalone: true,
+  imports: [
+    NgClass,
+    MatButtonModule,
+    MatDialogModule,
+    MatIconModule,
+    MiaFormComponent,
+  ],
 })
 export class NewItemHelpComponent implements OnInit {
   @ViewChild('miaForm') miaForm!: MiaFormComponent;
@@ -92,7 +104,7 @@ export class NewItemHelpComponent implements OnInit {
       .fetchWithRelation(auctionId, ['relateds'])
       .pipe(tap((post) => (this.auction = post)))
       .pipe(tap((post) => this.onClickTab(this.tabs[0], 0)))
-      .subscribe((res) => (this.isLoading = false));
+      .subscribe(() => (this.isLoading = false));
   }
 
   loadParams() {

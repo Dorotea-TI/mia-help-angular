@@ -4,25 +4,39 @@ import { MiaQuery, nil } from '@doroteati/mia-core';
 import { MiaField, MiaFormConfig } from '@doroteati/mia-form';
 import { MiaHelp, MiaHelpService } from '@doroteati/mia-help-core';
 import { MiaLanguageService } from '@doroteati/mia-language-core';
-import { MiaPageCrudComponent, MiaPageCrudConfig } from '@doroteati/mia-layout';
+import {
+  MiaPageCrudComponent,
+  MiaPageCrudConfig,
+} from '@doroteati/mia-layout';
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { tap } from 'rxjs/operators';
+import { forkJoin, Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 import { HelpfulColumnComponent } from '../../columns/helpful-column/helpful-column.component';
+
+interface MiaPageCrudLike {
+  loadItems(): void;
+  openForm(item: any): Observable<any>;
+  onClickRemove(item: any): void;
+}
 
 @Component({
   selector: 'lib-help-list',
   templateUrl: './help-list.component.html',
   styleUrls: ['./help-list.component.css'],
+  standalone: true,
+  imports: [MiaPageCrudComponent],
 })
 export class HelpListComponent implements OnInit {
-  @ViewChild('pageComp') pageComp!: MiaPageCrudComponent;
+  @ViewChild('pageComp') pageComp!: MiaPageCrudLike;
 
   config = new MiaPageCrudConfig();
 
   lang = 'en';
+  readonly languageOptions: Array<{ id: number; title: string }> = [];
+  readonly categoryOptions: Array<{ id: number; title: string }> = [];
 
   constructor(
     protected route: ActivatedRoute,
@@ -35,6 +49,7 @@ export class HelpListComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadParams();
+    this.loadSelectOptions();
   }
 
   onSearch(text: string) {
@@ -47,9 +62,10 @@ export class HelpListComponent implements OnInit {
 
   onAction(action: { key: string; item: any }) {
     if (action.key == 'add') {
-      //this.navigator.navigateByUrl('/help/new-item');
+      const newItem = new MiaHelp();
+      newItem.status = 1;
       this.pageComp
-        .openForm(new MiaHelp())
+        .openForm(newItem)
         .pipe(nil())
         .subscribe((result) => this.pageComp.loadItems());
     } else if (action.key == 'search') {
@@ -153,26 +169,20 @@ export class HelpListComponent implements OnInit {
     this.config.formConfig.config.fields = [
       {
         key: 'language_id',
-        type: MiaField.TYPE_SELECT_SERVICE,
+        type: MiaField.TYPE_SELECT,
         label: this.lang == 'es' ? 'Idioma' : 'Languaje',
         validators: [Validators.required],
         extra: {
-          service: this.languageService,
-          field_display: 'title',
-          field_list: 'language-auto',
-          query: new MiaQuery(),
+          options: this.languageOptions,
         },
       },
       {
         key: 'category_id',
-        type: MiaField.TYPE_SELECT_SERVICE,
+        type: MiaField.TYPE_SELECT,
         label: this.lang == 'es' ? 'Categoria' : 'Category',
         validators: [Validators.required],
         extra: {
-          service: this.categoryService,
-          field_display: 'title',
-          field_list: 'category-auto',
-          query: new MiaQuery(),
+          options: this.categoryOptions,
         },
       },
       {
@@ -185,6 +195,10 @@ export class HelpListComponent implements OnInit {
         key: 'content',
         type: MiaField.TYPE_HTML,
         label: this.lang == 'es' ? 'Contenido' : 'Content',
+        extra: {
+          height: 280,
+          theme: 'snow',
+        },
       },
       {
         key: 'status',
@@ -232,5 +246,40 @@ export class HelpListComponent implements OnInit {
         })
       )
       .subscribe((res) => this.loadConfig());
+  }
+
+  loadSelectOptions() {
+    const languageQuery = new MiaQuery();
+    languageQuery.itemPerPage = 5000;
+    const categoryQuery = new MiaQuery();
+    categoryQuery.itemPerPage = 5000;
+
+    forkJoin({
+      languages: this.languageService.listWithExtras(languageQuery, {}).pipe(
+        map((response) => response?.data ?? []),
+        catchError(() => of([]))
+      ),
+      categories: this.categoryService.listWithExtras(categoryQuery, {}).pipe(
+        map((response) => response?.data ?? []),
+        catchError(() => of([]))
+      ),
+    }).subscribe(({ languages, categories }) => {
+      this.replaceOptions(this.languageOptions, languages);
+      this.replaceOptions(this.categoryOptions, categories);
+    });
+  }
+
+  replaceOptions(
+    target: Array<{ id: number; title: string }>,
+    items: Array<any>
+  ) {
+    target.splice(
+      0,
+      target.length,
+      ...items.map((item) => ({
+        id: item.id,
+        title: item.title ?? '',
+      }))
+    );
   }
 }

@@ -1,4 +1,64 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'quill/dist/quill.snow.css';
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap');
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:root {
+  --surface: #eceee8;
+  --surface-elevated: #f6f5f1;
+  --card: rgba(255, 255, 255, 0.9);
+  --text: #1f231d;
+  --muted: #6b7267;
+  --line: rgba(31, 35, 29, 0.12);
+  --accent: #234a86;
+  --accent-strong: #173561;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: var(--text);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0)),
+    var(--surface);
+}
+
+body .mat-mdc-raised-button.mat-primary,
+body .mat-mdc-unelevated-button.mat-primary,
+body .mat-mdc-fab.mat-primary,
+body .mat-mdc-mini-fab.mat-primary,
+body .mat-raised-button.mat-primary {
+  background-color: var(--accent);
+}
+
+body .mat-mdc-raised-button.mat-primary:hover,
+body .mat-mdc-unelevated-button.mat-primary:hover,
+body .mat-mdc-fab.mat-primary:hover,
+body .mat-mdc-mini-fab.mat-primary:hover,
+body .mat-raised-button.mat-primary:hover {
+  background-color: var(--accent-strong);
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Newsreader', serif;
+  letter-spacing: 0;
+  margin: 0 0 0.5rem;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}

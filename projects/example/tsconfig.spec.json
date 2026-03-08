@@ -3,6 +3,17 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/spec",
+    "paths": {
+      "@doroteati/mia-help-core": [
+        "projects/doroteati/mia-help-core/src/public-api.ts"
+      ],
+      "@doroteati/mia-help-editor": [
+        "projects/doroteati/mia-help-editor/src/public-api.ts"
+      ],
+      "@doroteati/mia-help-viewer": [
+        "projects/doroteati/mia-help-viewer/src/public-api.ts"
+      ]
+    },
     "types": [
       "jasmine"
     ]

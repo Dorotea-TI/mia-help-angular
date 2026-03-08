@@ -12,7 +12,3 @@ export * from './lib/entities/mia_help';
  */
 export * from './lib/services/mia_help.service';
 
-/*
- * Modules
- */
-export * from './lib/mia-help-core.module';

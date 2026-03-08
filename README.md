@@ -1,27 +1,47 @@
-# MiaHelpAngular
+# Mia Help Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.0.
+Workspace actualizado a Angular 21.
 
-## Development server
+Incluye:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- librerias publicables `@doroteati/mia-help-core`, `@doroteati/mia-help-editor` y `@doroteati/mia-help-viewer`
+- componentes standalone por defecto
+- wrappers `NgModule` para compatibilidad con proyectos legacy
+- aplicacion `example` con arranque standalone y soporte SSR
 
-## Code scaffolding
+## Comandos
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- `npm install`
+- `npm start`
+- `npm run build:core`
+- `npm run build:editor`
+- `npm run build:viewer`
+- `npm run build`
+- `npm run build:ssr:example`
+- `npm run serve:ssr:example`
 
-## Build
+## Uso standalone
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Importa los componentes directamente desde el `public-api` del paquete:
 
-## Running unit tests
+- `HelpListComponent`
+- `NewItemHelpComponent`
+- `HelpfulColumnComponent`
+- `HomeHelpComponent`
+- `TopicViewHelpComponent`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Compatibilidad con modulos
 
-## Running end-to-end tests
+Si el proyecto consumidor sigue usando `NgModule`, puedes importar:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- `MiaHelpCoreModule`
+- `MiaHelpEditorModule`
+- `MiaHelpViewerModule`
 
-## Further help
+## Estado actual
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Angular y dependencias del workspace actualizadas a versiones compatibles con Angular 21
+- `example` migrado a `bootstrapApplication`
+- SSR compilando en `dist/example`
+
+Quedan warnings de bundle en dependencias externas (`moment`, `quill-delta`) y en budgets del ejemplo, pero no bloquean la compilacion.

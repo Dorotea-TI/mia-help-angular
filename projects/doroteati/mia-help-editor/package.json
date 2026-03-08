@@ -1,13 +1,21 @@
 {
   "name": "@doroteati/mia-help-editor",
-  "version": "17.0.0",
+  "version": "21.0.0",
   "peerDependencies": {
-    "@angular/common": ">=17.0.0",
-    "@angular/core": ">=17.0.0",
-    "@doroteati/mia-core": ">=17.0.0",
-    "@doroteati/mia-help-core": ">=17.0.0",
-    "@doroteati/mia-category-core": ">=17.0.0",
-    "@doroteati/mia-category-editor": ">=17.0.0"
+    "@angular/common": "^21.0.0",
+    "@angular/core": "^21.0.0",
+    "@angular/forms": "^21.0.0",
+    "@angular/material": "^21.0.0",
+    "@angular/router": "^21.0.0",
+    "@doroteati/mia-category-core": "^21.0.0",
+    "@doroteati/mia-category-editor": "^21.0.0",
+    "@doroteati/mia-core": "^21.0.0",
+    "@doroteati/mia-form": "^21.0.0",
+    "@doroteati/mia-help-core": "^21.0.0",
+    "@doroteati/mia-language-core": "^21.0.0",
+    "@doroteati/mia-layout": "^21.1.0",
+    "@doroteati/mia-table": "^21.1.0",
+    "rxjs": "^7.8.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"

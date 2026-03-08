@@ -1,7 +1,10 @@
 import { MiaCategory, MiaCategoryService } from '@doroteati/mia-category-core';
 import { MiaQuery } from '@doroteati/mia-core';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 export class MiaHelpHomePageConfig {
   titlePage = '';
@@ -16,6 +19,8 @@ export class MiaHelpHomePageConfig {
   selector: 'lib-home-help',
   templateUrl: './home-help.component.html',
   styleUrls: ['./home-help.component.scss'],
+  standalone: true,
+  imports: [RouterModule, MatIconModule, MatDividerModule],
 })
 export class HomeHelpComponent implements OnInit {
   config?: MiaHelpHomePageConfig;

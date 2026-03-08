@@ -1,0 +1,107 @@
+:host {
+  display: block;
+}
+
+.help-list-shell {
+  position: relative;
+  padding: clamp(16px, 2vw, 28px);
+}
+
+.help-list-shell > * {
+  position: relative;
+}
+
+.help-list-shell ::ng-deep .mat-mdc-card,
+.help-list-shell ::ng-deep .mat-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 10px 28px rgba(31, 35, 29, 0.05);
+  background: var(--card);
+}
+
+.help-list-shell ::ng-deep .mat-mdc-table,
+.help-list-shell ::ng-deep .mat-table {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.help-list-shell ::ng-deep .mat-mdc-header-row,
+.help-list-shell ::ng-deep .mat-header-row {
+  background: var(--surface-elevated);
+}
+
+.help-list-shell ::ng-deep .mat-mdc-header-cell,
+.help-list-shell ::ng-deep .mat-header-cell {
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  font-size: 0.82rem;
+  text-transform: none;
+}
+
+.help-list-shell ::ng-deep .mat-mdc-row,
+.help-list-shell ::ng-deep .mat-row {
+  transition: background-color 160ms ease;
+}
+
+.help-list-shell ::ng-deep .mat-mdc-row:hover,
+.help-list-shell ::ng-deep .mat-row:hover {
+  background: rgba(35, 74, 134, 0.045);
+}
+
+.help-list-shell ::ng-deep .mat-mdc-cell,
+.help-list-shell ::ng-deep .mat-cell {
+  color: var(--text);
+  border-bottom-color: rgba(31, 35, 29, 0.08);
+}
+
+.help-list-shell ::ng-deep .mat-mdc-raised-button,
+.help-list-shell ::ng-deep .mat-mdc-unelevated-button,
+.help-list-shell ::ng-deep .mat-raised-button {
+  border-radius: 12px;
+  background: var(--accent);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 20px rgba(31, 35, 29, 0.1);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.help-list-shell ::ng-deep .mat-mdc-raised-button:hover,
+.help-list-shell ::ng-deep .mat-mdc-unelevated-button:hover,
+.help-list-shell ::ng-deep .mat-raised-button:hover {
+  background: var(--accent-strong);
+}
+
+.help-list-shell ::ng-deep .mat-mdc-icon-button,
+.help-list-shell ::ng-deep .mat-icon-button {
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.help-list-shell ::ng-deep .mat-mdc-paginator,
+.help-list-shell ::ng-deep .mat-paginator {
+  border-top: 1px solid rgba(31, 35, 29, 0.08);
+  background: rgba(246, 245, 241, 0.9);
+}
+
+.help-list-shell ::ng-deep [class*='status'],
+.help-list-shell ::ng-deep [class*='badge'] {
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-weight: 600;
+}
+
+@media (max-width: 980px) {
+  .help-list-shell {
+    padding: 12px;
+  }
+
+  .help-list-shell ::ng-deep .mat-mdc-table,
+  .help-list-shell ::ng-deep .mat-table {
+    display: block;
+    overflow-x: auto;
+  }
+}

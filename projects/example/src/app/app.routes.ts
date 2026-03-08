@@ -1,15 +1,16 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { HelpListComponent } from 'projects/doroteati/mia-help-editor/src/lib/pages/help-list/help-list.component';
-import { NewItemHelpComponent } from 'projects/doroteati/mia-help-editor/src/public-api';
+import { Routes } from '@angular/router';
+import {
+  HelpListComponent,
+  NewItemHelpComponent,
+} from '@doroteati/mia-help-editor';
 import {
   HomeHelpComponent,
   MiaHelpDetailPageConfig,
   MiaHelpHomePageConfig,
   TopicViewHelpComponent,
-} from 'projects/doroteati/mia-help-viewer/src/public-api';
+} from '@doroteati/mia-help-viewer';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', component: HelpListComponent },
   { path: 'help/new-item', component: NewItemHelpComponent },
   { path: 'help/new-item/:id', component: NewItemHelpComponent },
@@ -22,7 +23,7 @@ const routes: Routes = [
       firstText: 'Hola! ¿en qué podemos ayudarte hoy?',
       secondText:
         'A continuación, podrás encontrar un listado de opciones mediante las cuales podemos ayudarte. Para más información o alguna inquietud adicional no dudes en utilizar nuestros canales de atención.',
-      pathDetail: '/viewer/detail/',
+      pathDetail: '/viewer/detail',
     } as MiaHelpHomePageConfig,
   },
   {
@@ -34,9 +35,3 @@ const routes: Routes = [
     } as MiaHelpDetailPageConfig,
   },
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}
